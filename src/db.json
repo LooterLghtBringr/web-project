@@ -1,0 +1,131 @@
+{
+  "user": [
+    { "id": 1, "vorname": "andreas", "passwort": "rassist" },
+    { "id": 2, "vorname": "matiou", "passwort": "guterMann" },
+    { "id": 2, "vorname": "mario", "passwort": "ok" }
+  ],
+  "warenkorb": [
+    { "id": 1, "name": "warenkorb1", "itemsCount": 1 }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Beer",
+      "brand": "Beer",
+      "desc": "Beer",
+      "price": 2.5,
+      "image": "https://res.cloudinary.com/digibar/image/upload/v1654441013/duvel_vj410q.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Mojito",
+      "brand": "Mojito",
+      "desc": "Mojito",
+      "price": 4,
+      "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/caipirinha_wfhqdh.jpg"
+    },
+    {
+      "id": 3,
+      "name": "White Wine",
+      "brand": "White Wine",
+      "desc": "White Wine",
+      "price": 2.5,
+      "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/white-wine_xof6h0.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Vodka Soda",
+      "brand": "Vodka Soda",
+      "desc": "Vodka Soda",
+      "price": 3,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640417/digibar/download_yuvqh6.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Sex on the beach",
+      "brand": "Sex on the beach",
+      "desc": "Sex on the beach",
+      "price": 5.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640817/digibar/download_og10o4.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Caipirinha",
+      "brand": "Caipirinha",
+      "desc": "Caipirinha",
+      "price": 4.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640759/digibar/download_glrqkv.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Moscow Mule",
+      "brand": "Wine",
+      "desc": "Wine",
+      "price": 3,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640905/digibar/download_px1w8q.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Margarita",
+      "brand": "Margarita",
+      "desc": "Margarita",
+      "price": 4,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640980/digibar/Vodka-Margarita-sq_utti6z.webp"
+    },
+    {
+      "id": 9,
+      "name": "Tequila Sunrise",
+      "brand": "Tequila Sunrise",
+      "desc": "Tequila Sunrise",
+      "price": 6.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641045/digibar/download_z0hw7r.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Pina Colada",
+      "brand": "Pina Colada",
+      "desc": "Pina Colada",
+      "price": 5.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641094/digibar/pina_colada_1_mklt30.webp"
+    },
+    {
+      "id": 11,
+      "name": "Mai Tai",
+      "brand": "Mai Tai",
+      "desc": "Mai Tai",
+      "price": 4.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641144/digibar/Mai-tai-cocktail_c4ml6x.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Whiskey on the rocks",
+      "brand": "Whiskey on the rocks",
+      "desc": "Whiskey on the rocks",
+      "price": 3,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641183/digibar/whisky-on-the-rocks_tiqfnk.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Cosmopolitan",
+      "brand": "Cosmopolitan",
+      "desc": "Cosmopolitan",
+      "price": 4.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641428/digibar/rez-edeka-cosmopolitan-rezept-a-d-1-1_gvknfu.webp"
+    },
+    {
+      "id": 14,
+      "name": "Negroni",
+      "brand": "Negroni",
+      "desc": "Negroni",
+      "price": 3.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641490/digibar/East-India-Negroni-Cocktail_wr1e7t.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Martini",
+      "brand": "Martini",
+      "desc": "Martini",
+      "price": 4.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641545/digibar/d0b1b441-1fac-4732-ab94-44eecb2ed7ec_q2gtqd.jpg"
+    }]
+}
