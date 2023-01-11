@@ -1,0 +1,52 @@
+<p>products</p>
+<div>
+    <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile 
+            *ngFor="let tile of tiles"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows"
+            [style.background]="tile.color">
+          {{tile.text}}
+          <button (click)="read(tile)">Read</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <form appearance="fill">
+        <label>Create Product</label>
+        <input [(ngModel)]="productToCreate" name="productToCreate">
+    </form>
+    <button mat-raised-button (click)="create()">Create</button>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <form appearance="fill">
+        <label>Delete Product</label>
+        <input [(ngModel)]="productToDelete" name="productToDelete">
+    </form>
+    <button mat-raised-button (click)="delete()">Delete</button>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: flex-start;">
+    <form appearance="fill">
+        <label>Update Product</label>
+        <input [(ngModel)]="productToUpdate" name="producToUpdate">
+        <label>New Product name</label>
+        <input [(ngModel)]="newProductName" name="newProductName">
+    </form>
+    <button mat-raised-button (click)="update()">Update</button>
+</div>
+
+<div>
+    <label>Read Product</label>
+    <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile 
+            *ngIf="selectedTile"
+            [colspan]="selectedTile.cols"
+            [rowspan]="selectedTile.rows"
+            [style.background]="selectedTile.color">
+          {{selectedTile.text}}
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>
