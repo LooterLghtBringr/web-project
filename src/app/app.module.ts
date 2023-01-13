@@ -11,12 +11,20 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 
+import { CartComponent } from './cart/cart.component';
+import { HttpClientModule } from '@angular/common/http';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent,
+  
   ],
   imports: [
+    MatGridListModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
