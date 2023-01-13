@@ -11,6 +11,8 @@ export class CartComponent implements OnInit {
   cartDetails:any; 
   totals=0; 
    show = true; 
+
+   prices = 0; 
     payload = {
     id: 6,
     itemscount:3, 
@@ -43,8 +45,10 @@ export class CartComponent implements OnInit {
     console.log(this.totals); 
   }
 
-  AddToCart(itemId: any, itemsCount: any):void{
-   this.http.IncreaseItemCountById(itemId, itemsCount).subscribe(() => 
+
+
+  AddToCart(itemId: any, itemsCount: any, itemPrice:any):void{
+   this.http.IncreaseItemCountById(itemId, itemsCount, itemPrice).subscribe(() => 
    window.location.reload() )
   }
 
@@ -52,11 +56,11 @@ export class CartComponent implements OnInit {
   
 
 
-  DecreaseFromCart(itemId: any, itemsCount:any):void{
+  DecreaseFromCart(itemId: any, itemsCount:any, itemPrice:any):void{
     if(itemsCount == 1){
       this.DeleteFromCart(itemId); 
     } else {
-      this.http.DecreaseItemCountById(itemId, itemsCount).subscribe(() => 
+      this.http.DecreaseItemCountById(itemId, itemsCount, itemPrice).subscribe(() => 
       window.location.reload())
     }
   

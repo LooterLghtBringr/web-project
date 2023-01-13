@@ -29,9 +29,9 @@
         <mat-grid-tile>{{item.name}}</mat-grid-tile>
        
         <mat-grid-tile>
-          <i class="material-icons myAdd" (click)="DecreaseFromCart(item.id, item.itemscount)"> remove </i>
+          <i class="material-icons myAdd" (click)="DecreaseFromCart(item.id, item.itemscount, item.originalPrice)"> remove </i>
           {{item.price | currency}}
-          <i class="material-icons myAdd"  (click)="AddToCart(item.id, item.itemscount)"> add </i>
+          <i class="material-icons myAdd"  (click)="AddToCart(item.id, item.itemscount, item.originalPrice)"> add </i>
         </mat-grid-tile>
         <mat-grid-tile>
           {{item.itemscount}}

@@ -22,9 +22,10 @@
       "name": "Beer",
       "brand": "Beer",
       "desc": "Beer",
-      "price": 2.5,
+      "price": 5,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654441013/duvel_vj410q.jpg",
-      "itemscount": 2
+      "itemscount": 2,
+      "originalPrice": 2.5
     },
     {
       "id": 2,
@@ -33,7 +34,8 @@
       "desc": "Mojito",
       "price": 4,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/caipirinha_wfhqdh.jpg",
-      "itemscount": 1
+      "itemscount": 1,
+      "originalPrice": 4
     },
     {
       "name": "hihi",

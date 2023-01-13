@@ -16,21 +16,25 @@ export class HttpService {
   }
 
 
-  IncreaseItemCountById(itemId: any, itemsCount: any) {
-    let currentCount = itemsCount+1;  
+  IncreaseItemCountById(itemId: any, itemsCount: any, itemPrice:any) {
+    let currentCount = itemsCount+1;
+    let price = currentCount *  itemPrice
     let payload = {
-      itemscount: currentCount
+      itemscount: currentCount, 
+      price: price
     };
     return this.http.patch("http://localhost:3000/cart/"+itemId+"", payload);
   }
 
 
 
-  DecreaseItemCountById(itemId: any, itemsCount: any) {
+  DecreaseItemCountById(itemId: any, itemsCount: any, itemPrice:any) {
     console.log(itemsCount);
-    let currentCount = itemsCount-1;  
+    let currentCount = itemsCount-1; 
+    let price = currentCount *  itemPrice; 
     let payload = {
-      itemscount: currentCount
+      itemscount: currentCount, 
+      price: price
     };
     return this.http.patch("http://localhost:3000/cart/"+itemId+"", payload);
   }
@@ -53,7 +57,7 @@ export class HttpService {
       });
       
       if(productCreatedFlag){
-        this.IncreaseItemCountById(payload.id, payload.itemscount).subscribe();
+        this.IncreaseItemCountById(payload.id, payload.itemscount, payload.price).subscribe();
         window.location.reload();  
       } else {
         this.CreateNewProduct(payload).subscribe(); 
