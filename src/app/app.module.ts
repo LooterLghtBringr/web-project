@@ -14,12 +14,16 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CartValidationDirective } from './validation/cart-validation.directive';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CartComponent,
+    CartValidationDirective,
+
   
   ],
   imports: [
