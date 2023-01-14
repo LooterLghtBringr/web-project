@@ -32,20 +32,46 @@
       "name": "Mojito",
       "brand": "Mojito",
       "desc": "Mojito",
-      "price": 4,
+      "price": 8,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/caipirinha_wfhqdh.jpg",
-      "itemscount": 1,
+      "itemscount": 2,
       "originalPrice": 4
     },
     {
       "name": "hihi",
-      "itemscount": 3,
+      "itemscount": 4,
       "brand": "hihi",
-      "price": 3,
+      "price": null,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/white-wine_xof6h0.jpg",
-      "id": 3
+      "id": 3, 
+      "itemscount": 2,
+      "originalPrice": 4
+    }, 
+    {
+      "id": 5,
+      "name": "Sex on the beach",
+      "brand": "Sex on the beach",
+      "desc": "Sex on the beach",
+      "price": 5.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640817/digibar/download_og10o4.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Caipirinha",
+      "brand": "Caipirinha",
+      "desc": "Caipirinha",
+      "price": 4.5,
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640759/digibar/download_glrqkv.jpg", 
+      "itemscount": 2,
+      "originalPrice": 4
     }
   ],
+
+
+
+
+
+
   "products": [
     {
       "id": 1,

@@ -19,13 +19,15 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import { CartValidationDirective } from './validation/cart-validation.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ProductsComponent,
-    CartComponent
+    CartComponent,
+    CartValidationDirective
   ],
   imports: [
     MatGridListModule,

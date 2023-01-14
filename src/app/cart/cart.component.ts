@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
   cartDetails:any; 
   totals=0; 
    show = true; 
-
+  searchterm: any; 
    prices = 0; 
     payload = {
     id: 6,
@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
     image: "https://res.cloudinary.com/digibar/image/upload/v1654440963/white-wine_xof6h0.jpg"
   }; 
   constructor(private http: HttpService) {
-
+    // return this._getCart(); 
   }
 
 
@@ -37,7 +37,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this._getCart();
   }
-
+ 
   getTotals():void{
     this.carts.forEach((arr:any)=> {
       this.totals += arr.price; 
@@ -85,6 +85,18 @@ export class CartComponent implements OnInit {
   
     return this.http.AddDummyToCart(this.payload);  
 
+}
+
+
+search(searchterm: any): void{
+  if(searchterm === "" || searchterm === undefined){
+   this._getCart(); 
+  } else {
+    this.http.getCartItems().subscribe((data: any) => {
+     this.carts = data.filter((x: any)=> x.name === searchterm)
+    });
+  }
+ 
 }
 
 
