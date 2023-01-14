@@ -31,6 +31,8 @@ export class ProductsComponent implements OnInit {
   price = 0;
   imageUrl = "";
 
+  searchterm = "";
+
   private productsURL = 'http://localhost:3000/products';
 
   constructor(private http: HttpClient) { }
@@ -84,5 +86,16 @@ export class ProductsComponent implements OnInit {
     this.delete(cocktail.id).subscribe(() => 
     window.location.reload());
     this.readCocktails();
+  }
+
+  search(searchterm: any){
+    if(searchterm === "" || searchterm === undefined){
+      this.readCocktails();
+    }
+    else{
+      this.read().subscribe((data: any) => {
+        this.cocktails = data.filter((x: any)=> x.name === searchterm)
+       });
+    }
   }
 }

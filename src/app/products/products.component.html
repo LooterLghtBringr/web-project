@@ -29,6 +29,13 @@
         </button>
 </div>
 <div>
+    <mat-form-field appearance="fill">
+        <mat-label>Search Products</mat-label>
+        <input matInput [(ngModel)]="searchterm" />
+    </mat-form-field>
+    <i class="material-icons myAdd" (click)="search(searchterm)"> search</i>
+</div>
+<div>
     <mat-grid-list cols="2" rowHeight="400px" *ngIf="cocktails">
         <div *ngFor="let cocktail of cocktails">
             <div>
