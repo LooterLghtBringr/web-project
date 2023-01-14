@@ -11,6 +11,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import { ProductsComponent } from './products/products.component';
+import { CartComponent } from './cart/cart.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -23,9 +24,12 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    CartComponent
   ],
   imports: [
+    MatGridListModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
