@@ -24,6 +24,7 @@ export class ProductsComponent implements OnInit {
 
   cocktails: Cocktail[] = [];
 
+  id = 0;
   name = "";
   brand = "";
   desc = "";
@@ -39,14 +40,13 @@ export class ProductsComponent implements OnInit {
   }
 
   create(cocktail:Cocktail) : Observable<Cocktail>{
-    const headers = { 'content-type': 'application/json'}
+    const headers = { 'content-Type': 'application/json'};
     const body = JSON.stringify(cocktail);
-    return this.http.post<Cocktail>(this.productsURL, body, {'headers': headers});
+    return this.http.post<Cocktail>(this.productsURL, body, {'headers' : headers});
   }
 
   createCocktail(){
-    let cocktail: Cocktail = {id: 16, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
-    console.log(cocktail);
+    let cocktail: Cocktail = {id: this.cocktails.length+1, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
     this.create(cocktail).subscribe();
     this.readCocktails();
   }
@@ -62,19 +62,27 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  update(){
-    //TODO
+  update(cocktail:Cocktail){
+    const headers = { 'content-Type': 'application/json'};
+    const body = JSON.stringify(cocktail);
+    return this.http.patch("http://localhost:3000/products/"+cocktail.id+"", body, {'headers' : headers});
   }
 
   updateCocktail(){
-    //TODO
+    let cocktail: Cocktail = {id: this.id, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
+    this.update(cocktail).subscribe(() => 
+    window.location.reload());
+    this.readCocktails();
   }
 
-  delete(){
-    //TODO
+  delete(itemId: any){
+    return this.http.delete("http://localhost:3000/products/"+itemId+"");
   }
 
   deleteCocktail(){
-    //TODO
+    let cocktail: Cocktail = {id: this.id, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
+    this.delete(cocktail.id).subscribe(() => 
+    window.location.reload());
+    this.readCocktails();
   }
 }

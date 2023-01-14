@@ -1,5 +1,8 @@
 <div>
     <div>
+        <label for="id">Id: </label>
+        <input name="id" type="number" [(ngModel)]="id">
+        <br>
         <label for="name">Name: </label>
         <input name="name" type="text" [(ngModel)]="name">
         <br>
@@ -16,8 +19,14 @@
         <input name="imageUrl" type="text" [(ngModel)]="imageUrl">
     </div>
        <button (click)="createCocktail()">
-        Create Product
-    </button>
+            Create Product
+        </button>
+        <button (click)="updateCocktail()">
+            Update Product
+        </button>
+        <button (click)="deleteCocktail()">
+            Delete Product
+        </button>
 </div>
 <div>
     <mat-grid-list cols="2" rowHeight="400px" *ngIf="cocktails">
