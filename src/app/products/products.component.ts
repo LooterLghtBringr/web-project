@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
+export interface Cocktail {
+  id: number;
+  name: string;
+  brand: string;
+  desc: string;
+  price: number;
+  image: string;
 }
 
 @Component({
@@ -14,45 +18,63 @@ export interface Tile {
 })
 export class ProductsComponent implements OnInit {
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 1, rows: 1, color: '#DDBDF1'},
-  ];
+  httpOptions = {
+    headers: new HttpHeaders({ 'content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
+  };
 
-  productToCreate = '';
-  productToDelete = '';
-  productToUpdate = '';
-  newProductName = '';
-  productToRead = '';
-  selectedTile: Tile | undefined;
+  cocktails: Cocktail[] = [];
 
-  constructor() { }
+  name = "";
+  brand = "";
+  desc = "";
+  price = 0;
+  imageUrl = "";
+
+  private productsURL = 'http://localhost:3000/products';
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.readCocktails();
   }
 
-  create(){
-    let i = Math.floor(Math.random() * 3);
-    var colors:string[];
-    colors = ['lightblue','lightgreen','lightpink','#DDBDF1'];
-    this.tiles.push({text: this.productToCreate, cols: 1, rows: 1, color: colors[i]});
+  create(cocktail:Cocktail) : Observable<Cocktail>{
+    const headers = { 'content-type': 'application/json'}
+    const body = JSON.stringify(cocktail);
+    return this.http.post<Cocktail>(this.productsURL, body, {'headers': headers});
   }
 
-  delete(){
-    this.tiles.splice(this.tiles.findIndex(x => x.text === this.productToDelete), 1);
+  createCocktail(){
+    let cocktail: Cocktail = {id: 16, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
+    console.log(cocktail);
+    this.create(cocktail).subscribe();
+    this.readCocktails();
+  }
+
+  read() : Observable<Cocktail>{
+    return this.http.get<Cocktail>(this.productsURL);
+  }
+
+  readCocktails(){
+    this.read().subscribe((response) => {
+      this.cocktails = Object.assign([], response);
+      console.log(this.cocktails);
+    })
   }
 
   update(){
-    let i = this.tiles.findIndex(x => x.text === this.productToUpdate);
-    let updateProduct = this.tiles[i];
-    updateProduct.text = this.newProductName;
-    this.tiles.splice(i, 1);
-    this.tiles.push(updateProduct);
+    //TODO
   }
 
-  read(tile:Tile){
-    this.selectedTile = tile;
+  updateCocktail(){
+    //TODO
+  }
+
+  delete(){
+    //TODO
+  }
+
+  deleteCocktail(){
+    //TODO
   }
 }

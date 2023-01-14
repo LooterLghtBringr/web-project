@@ -17,6 +17,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
+    HttpClientModule
   ],
   exports: [
     MatSlideToggleModule,

@@ -1,11 +1,27 @@
 {
   "user": [
-    { "id": 1, "vorname": "andreas", "passwort": "rassist" },
-    { "id": 2, "vorname": "matiou", "passwort": "guterMann" },
-    { "id": 2, "vorname": "mario", "passwort": "ok" }
+    {
+      "id": 1,
+      "vorname": "andreas",
+      "passwort": "rassist"
+    },
+    {
+      "id": 2,
+      "vorname": "matiou",
+      "passwort": "guterMann"
+    },
+    {
+      "id": 2,
+      "vorname": "mario",
+      "passwort": "ok"
+    }
   ],
   "warenkorb": [
-    { "id": 1, "name": "warenkorb1", "itemsCount": 1 }
+    {
+      "id": 1,
+      "name": "warenkorb1",
+      "itemsCount": 1
+    }
   ],
   "products": [
     {
@@ -127,5 +143,14 @@
       "desc": "Martini",
       "price": 4.5,
       "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655641545/digibar/d0b1b441-1fac-4732-ab94-44eecb2ed7ec_q2gtqd.jpg"
-    }]
+    },
+    {
+      "id": 16,
+      "name": "Whiskey sour",
+      "brand": "Whiskey sour ",
+      "desc": "Whiskey sour",
+      "price": 4,
+      "image": "https://image.essen-und-trinken.de/11940072/t/j1/v10/w960/r1/-/whiskeysour-jpg--58699-.jpg"
+    }
+  ]
 }
