@@ -32,6 +32,8 @@ export class ProductsComponent implements OnInit {
   imageUrl = "";
 
   searchterm = "";
+  
+  mode = "";
 
   private productsURL = 'http://localhost:3000/products';
 
