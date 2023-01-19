@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {StateEnum} from './state-enum';
+import {FormsModule} from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +15,15 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent {
 
-  user = { username: '', password: '' };
+  state = StateEnum.LOGIN;
+  user = {username: '', password: ''};
   registerUsername = '';
   registerPassword = '';
   error = false;
   errorMessage = '';
-  loginMode = true;
-  registerMode = false;
-  pwResetMode = false;
   pwResetSuccess = false;
+
+  stateEnum = StateEnum;
 
   constructor(
     //private auth: AuthenticateService,
@@ -46,26 +53,21 @@ export class LoginComponent {
   register() {
     this.error = false;
     this.errorMessage = '';
-    this.loginMode = false;
-    this.registerMode = true;
+    this.state = StateEnum.REGISTER;
   }
 
   back() {
     this.error = false;
     this.errorMessage = '';
-    this.loginMode = true;
-    this.registerMode = false;
-    this.pwResetMode = false;
     this.pwResetSuccess = false;
+    this.state = StateEnum.LOGIN;
   }
 
   resetPW() {
     this.error = false;
     this.errorMessage = '';
-    this.pwResetMode = true;
-    this.loginMode = false;
-    this.registerMode = false;
     this.pwResetSuccess = false;
+    this.state = StateEnum.RESET;
   }
 
   send() {
@@ -73,7 +75,7 @@ export class LoginComponent {
     this.errorMessage = '';
     this.pwResetSuccess = false;
 
-    if (this.registerMode) {
+    if (this.state === StateEnum.REGISTER) {
       if (this.user.username !== this.registerUsername) {
         this.error = true;
         this.errorMessage = 'E-Mailadressen müssen ident sein!';
