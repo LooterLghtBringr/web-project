@@ -28,6 +28,5 @@ export class CartValidationDirective implements Validator {
       }
    
       return {error:{} }
- 
 }
 }

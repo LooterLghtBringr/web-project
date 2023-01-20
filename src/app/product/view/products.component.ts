@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { FormBuilder, FormControl, ReactiveFormsModule  } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { validatePrice } from '../validation/products.validator';
 
 export interface Cocktail {
@@ -34,7 +34,7 @@ export class ProductsComponent implements OnInit {
   imageUrl = "";
 
   searchterm = "";
-  
+
   mode = "";
 
   private productsURL = 'http://localhost:3000/products';
@@ -105,7 +105,7 @@ export class ProductsComponent implements OnInit {
 
   updateCocktail(){
     let cocktail: Cocktail = {id: this.id, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
-    this.update(cocktail).subscribe(() => 
+    this.update(cocktail).subscribe(() =>
     window.location.reload());
     this.readCocktails();
   }
@@ -116,7 +116,7 @@ export class ProductsComponent implements OnInit {
 
   deleteCocktail(){
     let cocktail: Cocktail = {id: this.id, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
-    this.delete(cocktail.id).subscribe(() => 
+    this.delete(cocktail.id).subscribe(() =>
     window.location.reload());
     this.readCocktails();
   }
