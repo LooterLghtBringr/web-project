@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { provideCloudflareLoader } from '@angular/common';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,25 +17,25 @@ export class HttpService {
   }
 
 
-  IncreaseItemCountById(itemId: any, itemsCount: any, itemPrice:any) {
+  IncreaseItemCountById(itemId: any, itemsCount: any, itemPrice:any, originalprice:any) {
     let currentCount = itemsCount+1;
-    let price = currentCount *  itemPrice
+    let price = currentCount *  originalprice;
     let payload = {
       itemscount: currentCount, 
-      price: price
+      overallprice: price
     };
     return this.http.patch("http://localhost:3000/cart/"+itemId+"", payload);
   }
 
 
 
-  DecreaseItemCountById(itemId: any, itemsCount: any, itemPrice:any) {
+  DecreaseItemCountById(itemId: any, itemsCount: any, itemPrice:any, origPrice:any) {
     console.log(itemsCount);
     let currentCount = itemsCount-1; 
-    let price = currentCount *  itemPrice; 
+    let price = currentCount *  origPrice; 
     let payload = {
       itemscount: currentCount, 
-      price: price
+      overallprice: price 
     };
     return this.http.patch("http://localhost:3000/cart/"+itemId+"", payload);
   }
@@ -57,7 +58,8 @@ export class HttpService {
       });
       
       if(productCreatedFlag){
-        this.IncreaseItemCountById(payload.id, payload.itemscount, payload.price).subscribe();
+
+        this.IncreaseItemCountById(payload.id, payload.itemscount, payload.overallprice, payload.price).subscribe();
         window.location.reload();  
       } else {
         this.CreateNewProduct(payload).subscribe(); 
@@ -75,7 +77,8 @@ export class HttpService {
       itemscount: iteminformation.itemscount, 
       brand: iteminformation.brand, 
       price: iteminformation.price, 
-      image: iteminformation.image
+      image: iteminformation.image, 
+      overallprice: iteminformation.price
     } 
 
 

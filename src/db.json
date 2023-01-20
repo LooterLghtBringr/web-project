@@ -22,9 +22,10 @@
       "name": "Beer",
       "brand": "Beer",
       "desc": "Beer",
-      "price": null,
+      "price": 2,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654441013/duvel_vj410q.jpg",
-      "itemscount": 2
+      "itemscount": 4,
+      "overallprice": 8
     },
     {
       "id": 2,
@@ -33,35 +34,19 @@
       "desc": "Mojito",
       "price": 8,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/caipirinha_wfhqdh.jpg",
-      "itemscount": 2,
-      "originalPrice": 4
+      "itemscount": 3,
+      "originalPrice": 4,
+      "overallprice": 24
     },
     {
       "name": "hihi",
-      "itemscount": 2,
+      "itemscount": 3,
       "brand": "hihi",
-      "price": null,
+      "price": 3,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/white-wine_xof6h0.jpg",
       "id": 3,
-      "originalPrice": 4
-    },
-    {
-      "id": 5,
-      "name": "Sex on the beach",
-      "brand": "Sex on the beach",
-      "desc": "Sex on the beach",
-      "price": 5.5,
-      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640817/digibar/download_og10o4.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Caipirinha",
-      "brand": "Caipirinha",
-      "desc": "Caipirinha",
-      "price": 4.5,
-      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640759/digibar/download_glrqkv.jpg",
-      "itemscount": 2,
-      "originalPrice": 4
+      "originalPrice": 4,
+      "overallprice": 9
     }
   ],
   "products": [

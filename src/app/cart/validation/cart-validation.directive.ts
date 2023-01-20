@@ -23,19 +23,11 @@ export class CartValidationDirective implements Validator {
 
     const value = control.value;
 
-    let flag= false;
-    this.http.getCartItems().subscribe((data: any) => {
-        if(data.name == value){
-          flag = true; // found
-        }
-    //  console.log(this.carts);
-    });
-
-    if(flag){
-      return null;
-    }
-    else {
-       return {error:{} }
-  }
+      if(isNaN(value)){
+        return null; 
+      }
+   
+      return {error:{} }
+ 
 }
 }

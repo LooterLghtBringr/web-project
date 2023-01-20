@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../service/http.service';
-
+import { FormBuilder, FormControl  } from '@angular/forms';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,9 +14,23 @@ export class CartComponent implements OnInit {
   searchterm: any;
    prices = 0;
    modalOpen = false;
+  isError = false; 
+   form = this.fb.nonNullable.group({
+    suche: [
+        '',
+        [
+        
+        ]
+    ],
+    error: [
+      '',
+      [
+      
+      ]
+  ],
+  });
 
-
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService, private fb: FormBuilder) {
     // return this._getCart();
   }
 
@@ -48,8 +62,8 @@ export class CartComponent implements OnInit {
 
 
 
-  AddToCart(itemId: any, itemsCount: any, itemPrice:any):void{
-   this.http.IncreaseItemCountById(itemId, itemsCount, itemPrice).subscribe(() =>
+  AddToCart(itemId: any, itemsCount: any, itemPrice:any, itemprice:any):void{
+   this.http.IncreaseItemCountById(itemId, itemsCount, itemPrice, itemprice).subscribe(() =>
    window.location.reload() )
   }
 
@@ -57,11 +71,11 @@ export class CartComponent implements OnInit {
 
 
 
-  DecreaseFromCart(itemId: any, itemsCount:any, itemPrice:any):void{
+  DecreaseFromCart(itemId: any, itemsCount:any, itemPrice:any, itemprice:any):void{
     if(itemsCount == 1){
       this.DeleteFromCart(itemId);
     } else {
-      this.http.DecreaseItemCountById(itemId, itemsCount, itemPrice).subscribe(() =>
+      this.http.DecreaseItemCountById(itemId, itemsCount, itemPrice, itemprice).subscribe(() =>
       window.location.reload())
     }
 
@@ -87,11 +101,18 @@ export class CartComponent implements OnInit {
 search(searchterm: any): void{
   if(searchterm === "" || searchterm === undefined){
    this._getCart();
+   this.isError=false; 
   } else {
     this.http.getCartItems().subscribe((data: any) => {
      this.carts = data.filter((x: any)=> x.name === searchterm)
+     if(this.carts.length == 0){
+      this.isError = true; 
+    }
     });
+    
+
   }
+ 
 
 }
 

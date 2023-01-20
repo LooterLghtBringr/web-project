@@ -5,39 +5,36 @@
 <button mat-button myButton (click)="openModal()" >Neues Produkt hinzufügen?</button>
 </div>
 
-<form [formGroup]="form" *ngIf="mode =='Create'">
-  <label for="name">Name: </label>
-  <input formControlName="name" name="name" type="text" [(ngModel)]="name">
-  <br>
-  <label for="brand">Brand: </label>
-  <input formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
-  <br>
-  <label for="price">Price: </label>
-  <input formControlName="price" name="price" type="number" [(ngModel)]="price">
-  <div *ngIf="form.controls['price'].hasError('price')">
-      <p style="color: red">Price must be 0 or greater</p>
-  </div>
-  <br>
-  <label for="desc">Description: </label>
-  <input formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
-  <br>
-  <label for="imageUrl">ImageUrl: </label>
-  <input formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
-  <br>
-  <!-- <button (click)="createCocktail()">
-      Create Product
-  </button> -->
-</form>
 
-<!-- <div class="modal" *ngIf="isOpen==true">
+<div class="modal" *ngIf="isOpen==true">
     <div class="modal-body">
-      <h2>{{ title }}</h2>
-      <mat-form-field appearance="fill">
-        <mat-label>First name</mat-label>
-        <input matInput #first>
-       
-      </mat-form-field>
-      <button (click)="closeModal()">Close</button>
+      <form [formGroup]="form" *ngIf="mode =='Create'">
+        <label for="name">Name: </label>
+        <input formControlName="name" name="name" type="text" [(ngModel)]="name">
+        <br>
+        <label for="brand">Brand: </label>
+        <input formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
+        <br>
+        <label for="price">Price: </label>
+        <input formControlName="price" name="price" type="number" [(ngModel)]="price">
+        <div *ngIf="form.controls['price'].hasError('price')">
+            <p style="color: red">Price must be 0 or greater</p>
+        </div>
+        <br>
+        <label for="desc">Description: </label>
+        <input formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
+        <br>
+        <label for="imageUrl">ImageUrl: </label>
+        <input formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
+        <br>
+        <button (click)="AddToCart()">
+            Add Product
+        </button>
+      <button (click)="closeModal()">
+       Close
+    </button>
+      </form>
+      
     </div>
 
     <div class="modal-footer">
@@ -48,6 +45,6 @@
       
       </div>
 
-  </div> -->
+  </div>
 
   

@@ -3,6 +3,7 @@ import { HttpService } from '../service/http.service';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl  } from '@angular/forms';
 import { FormsModule }   from '@angular/forms';
+import { validatePrice } from '../validation/cart-child-validation';
 @Component({
 
   selector: 'app-cart-child',
@@ -16,7 +17,7 @@ export class CartChildComponent {
     price: [
         '',
         [
-
+          validatePrice
         ]
     ],
     desc: [
@@ -81,9 +82,17 @@ export class CartChildComponent {
     window.location.reload();
   }
 
-  AddToCartDummy():void{
-
-    return this.http.AddDummyToCart(this.payload);
+  AddToCart():void{
+    const payload = {
+      id: this.id,
+      itemscount: 1,
+      name: this.name,
+      brand: this.brand,
+      price: this.price,
+      image: this.imageUrl
+    };
+  
+   return this.http.AddDummyToCart(payload);
 
 }
   ngOnInit(): void {
@@ -93,11 +102,13 @@ export class CartChildComponent {
   closeModal() {
     this.isOpen = false;
     this.closed.emit();
+    this.mode = ""; 
   }
 
   openModal() {
     this.modalOpen = true;
     this.isOpen=true;
+    this.mode = "Create"; 
   }
 
   modalClosed() {

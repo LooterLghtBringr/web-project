@@ -1,25 +1,28 @@
 
-
-<!-- <div class="form-group">
-  <button class="btn btn-default" (click)="search()">Search</button>
-</div> -->
-
-
-
-
-<mat-form-field appearance="fill">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
  
-  <mat-label>Search CartProducts</mat-label>
+      <mat-label>Search CartProducts</mat-label>
+    
+      <input required formControlName="suche" name ="suche" cartname matInput [(ngModel)]="searchterm" />
+      <div *ngIf="form.controls['error'].hasError('error')">
+        <p style="color: red">Price must be 0 or greater</p>
+    </div>
+      <mat-error>
+      </mat-error>
+    
+    </mat-form-field>
+    <i class="material-icons myAdd" (click)="search(searchterm)"> search</i>
+    <p *ngIf="isError">Keine Produkte gefunden!</p>
+  </form>
 
-  <input required cartname matInput [(ngModel)]="searchterm" />
-  <mat-error>
-  </mat-error>
 
-</mat-form-field>
-<i class="material-icons myAdd" (click)="search(searchterm)"> search</i>
+
+
+
 
 <app-cart-child  [title]="'Modal Title'" [isOpen]="modalOpen" (closed)="modalClosed()"></app-cart-child>
-  <mat-grid-list cols="5" rowHeight="3:1">
+  <mat-grid-list cols="6" rowHeight="3:1">
     <mat-grid-tile>
      Item
     </mat-grid-tile>
@@ -34,29 +37,34 @@
     <mat-grid-tile>
       Löschen
     </mat-grid-tile>
+    <mat-grid-tile>
+      Gesamtpreis
+    </mat-grid-tile>
   </mat-grid-list>
  
 
   <!-- <div *ngFor="let item of carts | searchfilter: searchterm" > -->
     <div *ngFor="let item of carts" >
-      <mat-grid-list cols="5" rowHeight="2:1">
+      <mat-grid-list cols="6" rowHeight="2:1">
         <mat-grid-tile>
-       
           <img src={{item.image}} width="100" height="100" />
          
         </mat-grid-tile>
         <mat-grid-tile>{{item.name}}</mat-grid-tile>
        
         <mat-grid-tile>
-          <i class="material-icons myAdd" (click)="DecreaseFromCart(item.id, item.itemscount, item.originalPrice)"> remove </i>
+          <i class="material-icons myAdd" (click)="DecreaseFromCart(item.id, item.itemscount, item.overallprice, item.price)"> remove </i>
           {{item.price | currency}}
-          <i class="material-icons myAdd"  (click)="AddToCart(item.id, item.itemscount, item.originalPrice)"> add </i>
+          <i class="material-icons myAdd"  (click)="AddToCart(item.id, item.itemscount, item.overallprice, item.price)"> add </i>
         </mat-grid-tile>
         <mat-grid-tile>
           {{item.itemscount}}
         </mat-grid-tile>
         <mat-grid-tile>
           <i class="material-icons"  (click)="DeleteFromCart(item.id)"> delete</i>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          {{item.overallprice | currency}}
         </mat-grid-tile>
       </mat-grid-list>
     </div>
