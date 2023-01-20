@@ -39,14 +39,13 @@
     },
     {
       "name": "hihi",
-      "itemscount": 4,
+      "itemscount": 2,
       "brand": "hihi",
       "price": null,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654440963/white-wine_xof6h0.jpg",
-      "id": 3, 
-      "itemscount": 2,
+      "id": 3,
       "originalPrice": 4
-    }, 
+    },
     {
       "id": 5,
       "name": "Sex on the beach",
@@ -61,17 +60,11 @@
       "brand": "Caipirinha",
       "desc": "Caipirinha",
       "price": 4.5,
-      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640759/digibar/download_glrqkv.jpg", 
+      "image": "https://res.cloudinary.com/jy3-gs-9s-ymxdn/image/upload/v1655640759/digibar/download_glrqkv.jpg",
       "itemscount": 2,
       "originalPrice": 4
     }
   ],
-
-
-
-
-
-
   "products": [
     {
       "id": 1,
@@ -200,6 +193,14 @@
       "desc": "Whiskey sour",
       "price": 10,
       "image": "https://image.essen-und-trinken.de/11940072/t/j1/v10/w960/r1/-/whiskeysour-jpg--58699-.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Tequila Sunrise",
+      "brand": "Tequila Sunrise",
+      "desc": "Tequila Sunrise",
+      "price": 5,
+      "image": "https://drinkch.rokka.io/new-composition-600/3394d2.jpg"
     }
   ]
 }
