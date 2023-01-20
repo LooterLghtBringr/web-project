@@ -15,6 +15,8 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CartValidationDirective } from './validation/cart-validation.directive';
+import { CartChildComponent } from './cart-child/cart-child.component';
+
 
 
 @NgModule({
@@ -22,9 +24,8 @@ import { CartValidationDirective } from './validation/cart-validation.directive'
     AppComponent,
     LoginComponent,
     CartComponent,
-    CartValidationDirective,
-
-  
+    CartChildComponent,
+ 
   ],
   imports: [
     MatGridListModule,

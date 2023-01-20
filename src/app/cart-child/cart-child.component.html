@@ -1,0 +1,30 @@
+<div class="mydiv">
+
+<button mat-button color="warn" myButton (click)="EmptyAll()" >Alles löschen?</button>
+
+<button mat-button myButton (click)="openModal()" >Neues Produkt hinzufügen?</button>
+</div>
+
+
+<div class="modal" *ngIf="isOpen==true">
+    <div class="modal-body">
+      <h2>{{ title }}</h2>
+      <mat-form-field appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput #first>
+       
+      </mat-form-field>
+      <button (click)="closeModal()">Close</button>
+    </div>
+
+    <div class="modal-footer">
+        <h2></h2>
+        <ng-content>
+
+        </ng-content>
+      
+      </div>
+
+  </div>
+
+  
