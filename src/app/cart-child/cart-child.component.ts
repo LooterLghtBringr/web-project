@@ -1,15 +1,44 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Input, Output, EventEmitter } from '@angular/core';
-
+import { FormBuilder, FormControl, ReactiveFormsModule  } from '@angular/forms';
 @Component({
- 
+  
   selector: 'app-cart-child',
   templateUrl: './cart-child.component.html',
   styleUrls: ['./cart-child.component.scss'], 
 
 })
 export class CartChildComponent {
+  
+  form = this.fb.nonNullable.group({
+    price: [
+        '',
+        [
+            
+        ]
+    ],
+    desc: [
+      '',
+        []
+    ],
+      brand: [
+        '',
+        []
+    ],
+    imageUrl: [
+      '',
+        []
+    ],
+    name: [
+      '',
+        []
+    ],
+    id: [
+      '',
+        []
+    ]
+  });
   @Input() title?: string;
   @Input() isOpen = true;
   @Output() closed = new EventEmitter<void>();
@@ -25,7 +54,7 @@ export class CartChildComponent {
   }; 
 
   modalOpen = false;
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService,  private fb: FormBuilder) {
   }
   _getCart(): void {
     this.http.getCartItems().subscribe((data: any) => {

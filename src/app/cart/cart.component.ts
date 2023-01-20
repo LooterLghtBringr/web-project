@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
-
+import { FormBuilder, FormControl, ReactiveFormsModule  } from '@angular/forms';
 
 
 @Component({
@@ -11,7 +11,34 @@ import { HttpService } from '../http.service';
  
 })
 export class CartComponent implements OnInit {
-
+  form = this.fb.nonNullable.group({
+    price: [
+        '',
+        [
+            validatePrice
+        ]
+    ],
+    desc: [
+      '',
+        []
+    ],
+      brand: [
+        '',
+        []
+    ],
+    imageUrl: [
+      '',
+        []
+    ],
+    name: [
+      '',
+        []
+    ],
+    id: [
+      '',
+        []
+    ]
+  });
   carts:any;
   cartDetails:any; 
   totals=0; 
