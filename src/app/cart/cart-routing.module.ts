@@ -8,10 +8,9 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'cart',
+        component: CartComponent,
         pathMatch: 'full'
-      },
-      {path: 'cart', component: CartComponent},
+      }
     ]
   }
 ];
