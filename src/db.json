@@ -22,10 +22,9 @@
       "name": "Beer",
       "brand": "Beer",
       "desc": "Beer",
-      "price": 5,
+      "price": null,
       "image": "https://res.cloudinary.com/digibar/image/upload/v1654441013/duvel_vj410q.jpg",
-      "itemscount": 2,
-      "originalPrice": 2.5
+      "itemscount": 2
     },
     {
       "id": 2,

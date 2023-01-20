@@ -13,19 +13,20 @@ export class CartComponent implements OnInit {
    show = true;
   searchterm: any;
    prices = 0;
-    payload = {
-    id: 6,
-    itemscount:3,
-    name: "hihi",
-    brand: "hihi",
-    price: 3,
-    image: "https://res.cloudinary.com/digibar/image/upload/v1654440963/white-wine_xof6h0.jpg"
-  };
+   modalOpen = false;
+
+
   constructor(private http: HttpService) {
     // return this._getCart();
   }
 
+  openModal() {
+    this.modalOpen = true;
+  }
 
+  modalClosed() {
+    this.modalOpen = false;
+  }
   _getCart(): void {
     this.http.getCartItems().subscribe((data: any) => {
       this.carts = data;
@@ -81,11 +82,6 @@ export class CartComponent implements OnInit {
   }
 
 
-  AddToCartDummy():void{
-
-    return this.http.AddDummyToCart(this.payload);
-
-}
 
 
 search(searchterm: any): void{
