@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { FormBuilder, FormControl, ReactiveFormsModule  } from '@angular/forms';
+import { validatePrice } from '../validation/products.validator';
 
 export interface Cocktail {
   id: number;
@@ -37,7 +39,36 @@ export class ProductsComponent implements OnInit {
 
   private productsURL = 'http://localhost:3000/products';
 
-  constructor(private http: HttpClient) { }
+  form = this.fb.nonNullable.group({
+    price: [
+        '',
+        [
+            validatePrice
+        ]
+    ],
+    desc: [
+      '',
+        []
+    ],
+      brand: [
+        '',
+        []
+    ],
+    imageUrl: [
+      '',
+        []
+    ],
+    name: [
+      '',
+        []
+    ],
+    id: [
+      '',
+        []
+    ]
+  });
+
+  constructor(private http: HttpClient, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.readCocktails();

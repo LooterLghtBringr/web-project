@@ -10,57 +10,63 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <div *ngIf="mode =='Create'">
+    <form [formGroup]="form" *ngIf="mode =='Create'">
         <label for="name">Name: </label>
-        <input name="name" type="text" [(ngModel)]="name">
+        <input formControlName="name" name="name" type="text" [(ngModel)]="name">
         <br>
         <label for="brand">Brand: </label>
-        <input name="brand" type="text" [(ngModel)]="brand">
+        <input formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
         <br>
         <label for="price">Price: </label>
-        <input name="price" type="number" [(ngModel)]="price">
+        <input formControlName="price" name="price" type="number" [(ngModel)]="price">
+        <div *ngIf="form.controls['price'].hasError('price')">
+            <p style="color: red">Price must be 0 or greater</p>
+        </div>
         <br>
         <label for="desc">Description: </label>
-        <input name="desc" type="text" [(ngModel)]="desc">
+        <input formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
         <br>
         <label for="imageUrl">ImageUrl: </label>
-        <input name="imageUrl" type="text" [(ngModel)]="imageUrl">
+        <input formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
         <br>
         <button (click)="createCocktail()">
             Create Product
         </button>
-    </div>
-    <div *ngIf="mode =='Delete'">
+    </form>
+    <form [formGroup]="form" *ngIf="mode =='Delete'">
         <label for="id">Id: </label>
-        <input name="id" type="number" [(ngModel)]="id">
+        <input formControlName="id" name="id" type="number" [(ngModel)]="id">
         <br>
         <button (click)="deleteCocktail()">
             Delete Product
         </button>
-    </div>
-    <div *ngIf="mode =='Update'">
+    </form>
+    <form [formGroup]="form" *ngIf="mode =='Update'">
         <label for="id">Id: </label>
-        <input name="id" type="number" [(ngModel)]="id">
+        <input formControlName="id" name="id" type="number" [(ngModel)]="id">
         <br>
         <label for="name">Name: </label>
-        <input name="name" type="text" [(ngModel)]="name">
+        <input formControlName="name" name="name" type="text" [(ngModel)]="name">
         <br>
         <label for="brand">Brand: </label>
-        <input name="brand" type="text" [(ngModel)]="brand">
+        <input formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
         <br>
         <label for="price">Price: </label>
-        <input name="price" type="number" [(ngModel)]="price">
+        <input formControlName="price" name="price" type="number" [(ngModel)]="price">
+        <div *ngIf="form.controls['price'].hasError('price')">
+            <p style="color: red">Price must be 0 or greater</p>
+        </div>
         <br>
         <label for="desc">Description: </label>
-        <input name="desc" type="text" [(ngModel)]="desc">
+        <input formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
         <br>
         <label for="imageUrl">ImageUrl: </label>
-        <input name="imageUrl" type="text" [(ngModel)]="imageUrl">
+        <input formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
         <br>
         <button (click)="updateCocktail()">
             Update Product
         </button>
-    </div>
+    </form>
 </div>
 <div>
     <mat-form-field appearance="fill">
