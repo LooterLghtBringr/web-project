@@ -1,7 +1,7 @@
 import { AbstractControl, NG_VALIDATORS, ValidationErrors, Validator } from '@angular/forms';
 import { Directive, Input } from '@angular/core';
 
-import { HttpService } from '../http.service';
+import { HttpService } from '../service/http.service';
 @Directive({
   standalone:true,
   selector: 'input[cartname]',
@@ -20,10 +20,10 @@ export class CartValidationDirective implements Validator {
   }
   // @Input() cartname: string;
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    
-    const value = control.value; 
 
-    let flag= false; 
+    const value = control.value;
+
+    let flag= false;
     this.http.getCartItems().subscribe((data: any) => {
         if(data.name == value){
           flag = true; // found
@@ -32,7 +32,7 @@ export class CartValidationDirective implements Validator {
     });
 
     if(flag){
-      return null; 
+      return null;
     }
     else {
        return {error:{} }
