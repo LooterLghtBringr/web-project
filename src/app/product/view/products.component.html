@@ -10,64 +10,83 @@
             </mat-select>
         </mat-form-field>
     </div>
-    <form [formGroup]="form" *ngIf="mode =='Create'">
-        <label for="name">Name: </label>
-        <input formControlName="name" name="name" type="text" [(ngModel)]="name">
-        <br>
-        <label for="brand">Brand: </label>
-        <input formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
-        <br>
-        <label for="price">Price: </label>
-        <input formControlName="price" name="price" type="number" [(ngModel)]="price">
-        <div *ngIf="form.controls['price'].hasError('price')">
-            <p style="color: red">Price must be 0 or greater</p>
-        </div>
-        <br>
-        <label for="desc">Description: </label>
-        <input formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
-        <br>
-        <label for="imageUrl">ImageUrl: </label>
-        <input formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
-        <br>
-        <button (click)="createCocktail()">
+    <div *ngIf="mode =='Create'">
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="name">Name: </mat-label>
+            <input matInput formControlName="name" name="name" type="text" [(ngModel)]="name">
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="brand">Brand: </mat-label>
+            <input matInput formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="price">Price: </mat-label>
+            <input matInput formControlName="price" name="price" type="number" [(ngModel)]="price">
+            <div *ngIf="form.controls['price'].hasError('price')">
+                <p style="color: red">Price must be 0 or greater</p>
+            </div>
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="desc">Description: </mat-label>
+            <input matInput formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="imageUrl">ImageUrl: </mat-label>
+            <input matInput formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="button" (click)="createCocktail()">
             Create Product
         </button>
-    </form>
-    <form [formGroup]="form" *ngIf="mode =='Delete'">
-        <label for="id">Id: </label>
-        <input formControlName="id" name="id" type="number" [(ngModel)]="id">
-        <br>
-        <button (click)="deleteCocktail()">
+    </div>
+    <div *ngIf="mode =='Delete'">
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="id">Id: </mat-label>
+            <input matInput formControlName="id" name="id" type="number" [(ngModel)]="id">
+            <div *ngIf="form.controls['id'].hasError('id')">
+                <p style="color: red">Id must be greater than 0</p>
+            </div>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="button" (click)="deleteCocktail()">
             Delete Product
         </button>
-    </form>
-    <form [formGroup]="form" *ngIf="mode =='Update'">
-        <label for="id">Id: </label>
-        <input formControlName="id" name="id" type="number" [(ngModel)]="id">
-        <br>
-        <label for="name">Name: </label>
-        <input formControlName="name" name="name" type="text" [(ngModel)]="name">
-        <br>
-        <label for="brand">Brand: </label>
-        <input formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
-        <br>
-        <label for="price">Price: </label>
-        <input formControlName="price" name="price" type="number" [(ngModel)]="price">
-        <div *ngIf="form.controls['price'].hasError('price')">
-            <p style="color: red">Price must be 0 or greater</p>
-        </div>
-        <br>
-        <label for="desc">Description: </label>
-        <input formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
-        <br>
-        <label for="imageUrl">ImageUrl: </label>
-        <input formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
-        <br>
-        <button (click)="updateCocktail()">
-            Update Product
-        </button>
-    </form>
+    </div>
+    <div *ngIf="mode =='Update'">
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="id">Id: </mat-label>
+            <input matInput formControlName="id" name="id" type="number" [(ngModel)]="id">
+            <div *ngIf="form.controls['id'].hasError('id')">
+                <p style="color: red">Id must be greater than 0</p>
+            </div>
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="name">Name: </mat-label>
+            <input matInput formControlName="name" name="name" type="text" [(ngModel)]="name">
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="brand">Brand: </mat-label>
+            <input matInput formControlName="brand" name="brand" type="text" [(ngModel)]="brand">
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="price">Price: </mat-label>
+            <input matInput formControlName="price" name="price" type="number" [(ngModel)]="price">
+            <div *ngIf="form.controls['price'].hasError('price')">
+                <p style="color: red">Price must be 0 or greater</p>
+            </div>
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="desc">Description: </mat-label>
+            <input matInput formControlName="desc" name="desc" type="text" [(ngModel)]="desc">
+        </mat-form-field>
+        <mat-form-field [formGroup]="form" class="formAlignment">
+            <mat-label for="imageUrl">ImageUrl: </mat-label>
+            <input matInput formControlName="imageUrl" name="imageUrl" type="text" [(ngModel)]="imageUrl">
+        </mat-form-field>
+            <button mat-raised-button color="primary" class="button" (click)="updateCocktail()">
+                Update Product
+            </button>
+    </div>
 </div>
+<div id="line"></div>
 <div>
     <mat-form-field appearance="fill">
         <mat-label>Search Products</mat-label>
@@ -76,16 +95,23 @@
     <i class="material-icons myAdd" (click)="search(searchterm)"> search</i>
 </div>
 <div>
-    <mat-grid-list cols="2" rowHeight="400px" *ngIf="cocktails">
+    <mat-grid-list cols="2" rowHeight="500px" *ngIf="cocktails">
         <div *ngFor="let cocktail of cocktails">
-            <div>
-                <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <img [src]="cocktail.image" style="height: 300px">
-                </mat-grid-tile>
-                <mat-grid-tile [colspan]="1" [rowspan]="1">
-                    <p style="font-size: 20px;">{{cocktail.id}} <br> {{cocktail.name}} <br> {{cocktail.brand}} <br> {{cocktail.price}} <br> {{cocktail.desc}}</p>
-                </mat-grid-tile>
-            </div>   
+            <mat-grid-tile class="tileMargin" [colspan]="1" [rowspan]="1">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>{{cocktail.name}}</mat-card-title>
+                        <mat-card-subtitle>{{cocktail.brand}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-xl-image [src]="cocktail.image">
+                    <mat-card-content>
+                        <p style="font-size: 20px; padding-top: 1rem;">Id: {{cocktail.id}}</p>
+                        <p style="font-size: 20px;">Price: {{cocktail.price}}</p>
+                        <p style="font-size: 20px;">Description: {{cocktail.desc}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
         </div>
     </mat-grid-list>
 </div>

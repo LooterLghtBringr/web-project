@@ -9,6 +9,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {ProductsComponent} from './view/products.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -22,7 +23,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatToolbarModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDividerModule
   ]
 })
 export class ProductModule {

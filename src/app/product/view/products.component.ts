@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { delay, firstValueFrom, Observable, throwError } from 'rxjs';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { validatePrice } from '../validation/products.validator';
+import { validateId, validatePrice } from '../validation/products.validator';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 export interface Cocktail {
   id: number;
@@ -64,7 +65,9 @@ export class ProductsComponent implements OnInit {
     ],
     id: [
       '',
-        []
+        [
+            validateId
+        ]
     ]
   });
 
@@ -82,7 +85,8 @@ export class ProductsComponent implements OnInit {
 
   createCocktail(){
     let cocktail: Cocktail = {id: this.cocktails.length+1, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
-    this.create(cocktail).subscribe();
+    this.create(cocktail).subscribe(() =>
+    window.location.reload());
     this.readCocktails();
   }
 
@@ -90,23 +94,39 @@ export class ProductsComponent implements OnInit {
     return this.http.get<Cocktail>(this.productsURL);
   }
 
+  readSingle(id: number) : Observable<Cocktail>{
+    return this.http.get<Cocktail>(this.productsURL + "/" + id +"");
+  }
+
+  readSingleCocktail(){
+    this.readSingle(this.id).subscribe((response) => {
+      if(this.name === ""){this.name = response.name}
+      if(this.brand === ""){this.brand = response.brand}
+      if(this.desc === ""){this.desc = response.desc}
+      if(this.price === 0){this.price = response.price}
+      if(this.imageUrl === ""){this.imageUrl = response.image}
+    })
+  }
+
   readCocktails(){
     this.read().subscribe((response) => {
       this.cocktails = Object.assign([], response);
-      console.log(this.cocktails);
     })
   }
 
   update(cocktail:Cocktail){
     const headers = { 'content-Type': 'application/json'};
     const body = JSON.stringify(cocktail);
-    return this.http.patch("http://localhost:3000/products/"+cocktail.id+"", body, {'headers' : headers});
+    return this.http.patch(this.productsURL + "/" + cocktail.id+"", body, {'headers' : headers});
   }
 
   updateCocktail(){
-    let cocktail: Cocktail = {id: this.id, name: this.name, brand: this.brand, desc: this.desc, price: this.price, image: this.imageUrl};
+    this.readSingleCocktail();
+
+    let cocktail: Cocktail = {id: this.id, name: this.name, brand: this.brand, 
+      desc: this.desc, price: this.price, image: this.imageUrl};
     this.update(cocktail).subscribe(() =>
-    window.location.reload());
+      window.location.reload());
     this.readCocktails();
   }
 
