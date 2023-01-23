@@ -26,6 +26,13 @@ export class ProductsComponent implements OnInit {
   };
 
   cocktails: Cocktail[] = [];
+  
+  selectedCocktail = {  id: 0,
+    name: "",
+    brand: "",
+    desc: "",
+    price: 0,
+    image: ""};
 
   id = 0;
   name = "";
@@ -150,5 +157,9 @@ export class ProductsComponent implements OnInit {
         this.cocktails = data.filter((x: any)=> x.name === searchterm)
        });
     }
+  }
+
+  select(cocktail: Cocktail){
+    this.selectedCocktail = cocktail;
   }
 }

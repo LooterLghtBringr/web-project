@@ -10,9 +10,10 @@ import {ProductsComponent} from './view/products.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
+import { ProductChildComponent } from './product-child/product-child.component';
 
 @NgModule({
-  declarations: [ProductsComponent],
+  declarations: [ProductsComponent, ProductChildComponent],
   imports: [
     ProductRoutingModule,
     CommonModule,
