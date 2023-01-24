@@ -1,18 +1,18 @@
 {
-  "user": [
+  "users": [
     {
       "id": 1,
-      "vorname": "andreas",
-      "passwort": "rassist"
+      "userName": "andreas",
+      "password": "superNew!2344"
     },
     {
       "id": 2,
-      "vorname": "matiou",
+      "userName": "matiou",
       "passwort": "guterMann"
     },
     {
-      "id": 2,
-      "vorname": "mario",
+      "id": 3,
+      "userName": "mario",
       "passwort": "ok"
     }
   ],

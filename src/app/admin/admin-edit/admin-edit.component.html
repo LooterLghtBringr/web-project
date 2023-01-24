@@ -1,0 +1,42 @@
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile
+    [colspan]="4">
+    <mat-grid-tile-header>
+      Admin Edit Page
+    </mat-grid-tile-header>
+    <form class="flex-container" [formGroup]="editForm">
+
+      <mat-form-field appearance="fill" id="id">
+        <mat-label>ID:</mat-label>
+        <input matInput [formControl]="idControl" required>
+        <mat-error *ngIf="idControl.hasError('required')">
+          Value is mandatory
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" id="user-name">
+        <mat-label>User name:</mat-label>
+        <input matInput [formControl]="userNameControl" required>
+        <mat-error *ngIf="userNameControl.hasError('required')">
+          Value is mandatory
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" id="password">
+        <mat-label>Password:</mat-label>
+        <input matInput [formControl]="passwordControl" [type]="'password'" required appPasswordValidator>
+        <mat-error *ngIf="passwordControl.hasError('required')">
+          Value is mandatory
+        </mat-error>
+        <mat-error *ngIf="passwordControl.hasError('password')">
+          Password did not contain all recommended signs
+        </mat-error>
+      </mat-form-field>
+
+      <button [disabled]="!editForm.valid" mat-raised-button (click)="save()">
+        Save
+      </button>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
+

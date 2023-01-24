@@ -1,0 +1,7 @@
+<mat-card >
+  <mat-card-title>ID: {{user?.id}}</mat-card-title>
+  <mat-card-content>User: {{user?.userName}}</mat-card-content>
+  <mat-card-actions>
+    <a mat-button [routerLink]="['../edit', user?.id]">Edit</a>
+  </mat-card-actions>
+</mat-card>

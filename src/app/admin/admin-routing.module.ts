@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
+import {AdminViewComponent} from './admin-view/admin-view.component';
+import {AdminEditComponent} from './admin-edit/admin-edit.component';
 
 const routes: Routes = [
   {
@@ -8,8 +10,20 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'login',
+        redirectTo: 'view',
         pathMatch: 'full'
+      },
+      {
+        path: 'edit/:id',
+        component: AdminEditComponent
+      },
+      {
+        path: 'edit',
+        component: AdminEditComponent
+      },
+      {
+        path: 'view',
+        component: AdminViewComponent
       },
       {
         path: 'login',
@@ -23,4 +37,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {
+}

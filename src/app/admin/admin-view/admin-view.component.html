@@ -1,0 +1,23 @@
+<mat-grid-list cols="4" rowHeight="2:1">
+  <mat-grid-tile
+    [colspan]="4">
+    <mat-grid-tile-header>
+      Admin Search Page
+    </mat-grid-tile-header>
+
+   <div class="flex-container">
+        <mat-form-field appearance="fill">
+          <mat-label>User name</mat-label>
+          <input type="text" matInput [formControl]="userName"/>
+          <mat-error *ngIf="userName.invalid">No valid user name</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button (click)="search()">Search</button>
+   </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile *ngFor="let u of users"
+    [colspan]="1">
+    <app-user-child [user]="u"></app-user-child>
+  </mat-grid-tile>
+</mat-grid-list>
