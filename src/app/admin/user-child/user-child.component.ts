@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {User} from '../user';
 
 @Component({
@@ -9,4 +9,13 @@ import {User} from '../user';
 export class UserChildComponent {
 
   @Input() user: User | undefined;
+
+  @Input() selected: boolean = false;
+
+  @Output() selectedChange = new EventEmitter();
+
+  toggleSelect(selected: boolean): void {
+    this.selected = selected;
+    this.selectedChange.emit(selected);
+  }
 }

@@ -8,12 +8,12 @@
     {
       "id": 2,
       "userName": "matiou",
-      "passwort": "guterMann"
+      "password": "guterMann"
     },
     {
       "id": 3,
       "userName": "mario",
-      "passwort": "ok"
+      "password": "ok"
     }
   ],
   "cart": [

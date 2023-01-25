@@ -31,6 +31,10 @@ export class AdminService {
     return this.http.put<User>(this.baseUrl + '/users/' + user.id,user)
   }
 
+  deleteUser(id: number ) {
+    return this.http.delete<User>(this.baseUrl + '/users/' + id)
+  }
+
   checkUserExists(id : number):Observable<boolean>{
     return this.getUser(id).pipe(
       isEmpty(),

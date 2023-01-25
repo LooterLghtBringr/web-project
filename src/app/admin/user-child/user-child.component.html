@@ -1,7 +1,8 @@
-<mat-card >
+<mat-card [ngStyle]="{'background-color': (selected) ? '#c2185b' : '#424242'}">
   <mat-card-title>ID: {{user?.id}}</mat-card-title>
   <mat-card-content>User: {{user?.userName}}</mat-card-content>
   <mat-card-actions>
-    <a mat-button [routerLink]="['../edit', user?.id]">Edit</a>
+    <mat-checkbox [checked]="selected" (change)="toggleSelect($event.checked)">Select</mat-checkbox>
+    <a mat-raised-button [routerLink]="['../edit', user?.id]">Edit</a>
   </mat-card-actions>
 </mat-card>

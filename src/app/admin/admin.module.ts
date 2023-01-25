@@ -12,21 +12,23 @@ import {AdminEditComponent} from './admin-edit/admin-edit.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {UserChildComponent} from './user-child/user-child.component';
 import {PasswordValidatorDirective} from './validation/password-validator.directive';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
   declarations: [LoginComponent, AdminViewComponent, AdminEditComponent, UserChildComponent, PasswordValidatorDirective],
-  imports: [
-    AdminRoutingModule,
-    CommonModule,
-    FormsModule,
-    MatCardModule,
-    MatInputModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        AdminRoutingModule,
+        CommonModule,
+        FormsModule,
+        MatCardModule,
+        MatInputModule,
+        MatButtonModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatCheckboxModule
+    ]
 })
 export class AdminModule {
 }
